@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fried Chicks</title>
+
+    <!-- ALL CSS HERE -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #e4001b;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffdad5;
+            transform: scale(1.1);
+        }
+
+        /* TOGGLE BUTTON */
+        #menuToggle {
+            display: none;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-text p {
+            font-size: 28px;
+        }
+
+        .section {
+            padding: 70px 30px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #ff3c2a;
+        }
+
+        /* CARDS */
+        .menu-grid,
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .dark-card {
+            background: #1b1b1b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 60, 42, 0.3);
+            transition: .3s;
+        }
+
+        .dark-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(255, 60, 42, 0.7);
+        }
+
+        .dark-card img {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* ORDER */
+        .order-input {
+            width: 90%;
+            max-width: 450px;
+            padding: 12px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin: 8px;
+        }
+
+        .order-btn {
+            padding: 12px 25px;
+            border: none;
+            background: #ff3c2a;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .order-btn:hover {
+            background: #ff1908;
+        }
+
+        footer {
+            background: black;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MOBILE STYLE */
+        @media(max-width:768px) {
+            #menuToggle {
+                display: block;
+                color: white;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background: #1b1b1b;
+                width: 200px;
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 0 15px;
+                display: none;
+            }
+
+            .nav-links.showMenu {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                font-size: 18px;
+            }
+
+            .hero-text h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="logo">Fried Chicks</div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div id="menuToggle">&#9776;</div>
+
+        <ul class="nav-links" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#order">Order</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home" style="background-image:url('pto.jpg');">
+        <div class="hero-text">
+            <h2>Welcome!</h2>
+            <p>“I promised you will enjoy this fun and taste everytime and everywhere”</p>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="section menu-dark" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+
+            <div class="dark-card">
+                <img src="png-clipart-pizza-hut-restaurant-pizza-delivery-pizza-food-cheese-thumbnail.png">
+                <h3>Fajita Pizza</h3>
+                <p>Small 300 | Medium 550 | Large 750</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="tika.png">
+                <h3>Tikka Pizza</h3>
+                <p>Small 300 | Medium 550 | Large 750</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="bbb.jpg">
+                <h3>BBQ Pizza</h3>
+                <p>Small 300 | Medium 550 | Large 750</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DEALS -->
+    <section class="section menu-dark" id="deals">
+        <h2>Special Deals</h2>
+        <div class="deals-grid">
+
+            <div class="dark-card">
+                <img src="unnamed (1).jpg">
+                <h3>Deal #1</h3>
+                <p>3 Small Pizza + 1 Ltr Drink — Rs 1050</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="d2.jpg">
+                <h3>Deal #2</h3>
+                <p>2 Medium Pizza + 1 Ltr Drink — Rs 1250</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="d3.jpg">
+                <h3>Deal #3</h3>
+                <p>2 Large Pizza + 1 Ltr Drink — Rs 1550</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OTHER ITEMS -->
+    <section class="section menu-dark">
+        <h2>Other Items</h2>
+
+        <div class="menu-grid">
+
+            <div class="dark-card">
+                <img src="shawarama.png">
+                <h3>Shawarma</h3>
+                <p>Rs 180</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="zinger burger.jpg">
+                <h3>Zinger Burger</h3>
+                <p>Rs 280</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="hot wings.png">
+                <h3>12 Pc Hot Wings</h3>
+                <p>Rs 800</p>
+            </div>
+
+            <div class="dark-card">
+                <img src="nuggets.png">
+                <h3>12 Pc Nuggets</h3>
+                <p>Rs 600</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ORDER -->
+    <section class="section" id="order">
+        <h2>Place Your Order</h2>
+
+        <input class="order-input" id="orderName" placeholder="Your Name">
+        <input class="order-input" id="orderItem" placeholder="Your Order Item">
+        <input class="order-input" id="orderlocation" placeholder="Your Order location">
+        <input class="order-input" id="orderPhone" placeholder="Phone Number">
+
+        <button class="order-btn" id="orderBtn">Send Order</button>
+
+        <p style="margin-top:15px;">Or Call Us: <b>0318-7490003</b></p>
+    </section>
+
+    <footer>
+        <p>Water Supply Road, Near Purana Naz Cinema, Sargodha</p>
+        <p>© 2025 Fried Chicks</p>
+    </footer>
+
+    <!-- ALL JAVASCRIPT -->
+    <script>
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("showMenu");
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                document.querySelector(link.getAttribute("href"))
+                    .scrollIntoView({ behavior: "smooth" });
+
+                navMenu.classList.remove("showMenu");
+            });
+        });
+
+        // Order Button WhatsApp
+        document.getElementById("orderBtn").addEventListener("click", () => {
+            let name = document.getElementById("orderName").value;
+            let item = document.getElementById("orderItem").value;
+            let location = document.getElementById("orderlocation").value;
+            let phone = document.getElementById("orderPhone").value;
+
+            if (!name || !item || !location || !phone) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            let message =
+                `New Order:%0AName: ${name}%0AItem: ${item}%0Alocation: ${location}%0APhone: ${phone}`;
+
+            window.open(`https://wa.me/03187490003?text=${message}`, "_blank");
+        });
+
+    </script>
+
+</body>
+
+</html>
